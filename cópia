@@ -1,0 +1,41 @@
+Banco de Dados
+Programa ultilizado HEIDISQL
+CREATE DATABASE projetoa3;
+USE projetoa3;
+CREATE TABLE login (
+nome VARCHAR (300),
+login VARCHAR (100),
+senha VARCHAR (100),
+PRIMARY KEY (login)
+);
+
+INSERT INTO
+login (nome,login,senha) 
+VALUES
+('administrador','admin','aluno123');
+
+Programa ultilizado Visual studio code
+LOGIN
+ <center>
+        <h1>LOGIN</h1>
+        <form id= "login" action="logado.php" method="POST">
+            Login: <input type="text" id="login"     required><br>
+            Senha: <input type="password" id="senha" required><br><br>
+        <input type="submit" id="entrar" value="Entrar">
+</form>
+    </center>
+</body>
+</html>
+
+
+Parte Conexão
+<?php
+$conexao=mysqli_connect('localhost','root','','projetoa3','3306');
+if (!$conexao){
+    die("erro de conexão");
+    
+}else{
+    echo"conectado";
+
+}
+?>
