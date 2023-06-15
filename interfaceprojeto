@@ -8,7 +8,7 @@ login VARCHAR (100),
 senha VARCHAR (100),
 PRIMARY KEY (login)
 );
-
+_____________________________________________________________________________________
 INSERT INTO
 login (nome,login,senha) 
 VALUES
@@ -27,7 +27,7 @@ LOGIN
 </body>
 </html>
 
-
+__________________________________________________________________________
 Parte Conexão
 <?php
 $conexao=mysqli_connect('localhost','root','','projetoa3','3306');
@@ -39,6 +39,8 @@ if (!$conexao){
 
 }
 ?>
+
+_________________________________________________________________________
 Parte Logado
 <?php
 include('conexao.php');
@@ -67,7 +69,7 @@ MAIS ADICIONAIS DE MUDANÇAS
 if($login== $dados[1] && $senha== $dados[2]){
 session_start();
 $_SESSION['nome']= $dados[0];   
-
+____________________________________________________________________
 CADASTRO
 <?php
 include('conexao.php');
@@ -81,7 +83,7 @@ values ('$nome', '$login', '$senha')";
 $query= mysqli_query($conexao, $insert);
 header('location: index.php');
 ?>
-
+_________________________________________________________________--
 INDEX
 <center>
     olá,<?php
@@ -93,3 +95,12 @@ INDEX
             <a href="cadastrar.php">cadastrar</a><br>
             <a href="logout.php">sair</a>
             <?php } ?>
+ 
+ __________________________________________________________________--
+LOGOUT            
+            <?php
+session_start();
+$_SESSION['nome']=null;
+session_destroy();
+header('location: index.php');
+?>
